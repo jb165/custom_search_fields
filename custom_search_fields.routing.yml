@@ -1,0 +1,15 @@
+custom_search_fields.custom_search_fields_page:
+  path: '/custom-search-fields'
+  defaults:
+    _controller: '\Drupal\custom_search_fields\Controller\CustomSearchFieldsController::customSearchFieldsPage'
+    _title: 'Search Fields'
+  requirements:
+    _permission: 'authenticated'
+
+custom_search_fields.custom_search_fields:
+  path: '/custom-search-fields/search'
+  defaults:
+    _controller: '\Drupal\custom_search_fields\Controller\CustomSearchFieldsController::customSearchFields'
+    _title: 'Search'
+  requirements:
+    _permission: 'authenticated'

@@ -1,0 +1,12 @@
+.loading-gif {
+	height: 32px;
+	width: 32px;
+	position: absolute;
+	top: 2.5%;
+	left: 50%;
+	background: url(../images/loading.gif) no-repeat center center;
+}
+
+.loading-gif {
+	display: none;
+}

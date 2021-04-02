@@ -1,0 +1,10 @@
+custom_search_fields:
+  version: 1.x
+  js:
+    js/custom.js: {}
+  css:
+    component:
+      css/style.css: {}
+  dependencies:
+    - core/drupal
+    - core/jquery

@@ -1,0 +1,12 @@
+custom_search_fields.results:
+  type: config_object
+  label: 'Custom Search Field Results'
+  mapping:
+    custom_search_fields:
+      type: sequence
+      label: 'Custom Search Field Results'
+      sequence:
+        searched_field:
+          type: string
+          label: 'Searched Field'
+    

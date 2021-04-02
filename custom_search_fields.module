@@ -1,0 +1,48 @@
+<?php
+use \Drupal\Core\Ajax\AjaxResponse;
+use \Drupal\Core\Ajax\HtmlCommand;
+use \Drupal\Core\Form\FormStateInterface;
+use \Drupal\Core\Ajax\InvokeCommand;
+use \Drupal\Core\Ajax\ReplaceCommand;
+use \Drupal\Component\Serialization\Json;
+use \Drupal\node\Entity\Node;
+use \Drupal\field\FieldConfigInterface;
+
+/**
+ * Implements hook_theme()
+ */
+function custom_search_fields_theme($existing, $type, $theme, $path) {
+    return [
+      'custom_search_fields_page' => [
+        'template' => 'custom-search-fields-page',
+      ],
+    ];
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function custom_search_fields_page_attachments(array &$page) {
+
+  $custom_search_fields = \Drupal::config('custom_search_fields.results');
+
+  $page['#attached']['library'][] = 'custom_search_fields/custom_search_fields';
+  $page['#attached']['drupalSettings']['custom_search_fields']['results'] = $custom_search_fields->get('custom_search_fields');
+}
+
+/**
+ * Prepares variables for custom_search_fields_page template.
+ *
+ * Default template: custom-search-fields-page.html.twig.
+ *
+ * @param array $variables
+ *   An empty associative array. 
+ *
+ */
+
+function custom_search_fields_preprocess_custom_search_fields_page (&$variables) {
+  global $base_root, $base_path;
+  $custom_search_fields = \Drupal::config('custom_search_fields.results')->get('custom_search_fields');
+
+  $variables['searchResults'] = $custom_search_fields;
+}

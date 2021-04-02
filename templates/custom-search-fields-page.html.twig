@@ -1,0 +1,22 @@
+<div class="custom-search-fields-page">
+  <div class="search-container">
+    <form method="post" action="#">
+      <input type="text" placeholder="Search.." name="search" class="custom-search-field-input">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+  <div class="search-items-parent">
+    <ul>
+      {% if searchResults|length == 0 %}
+        <p>No Result</p>
+      {% else %}
+        {% for sid, searchItem in searchResults|sort %}
+        <li class="search-item">
+          <p>{{ searchItem }}</p>
+        </li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+  </div>
+  <div class="loading-gif"></div>
+</div>
